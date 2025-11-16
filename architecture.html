@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LIVRE OS — Architecture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">LIVRE<span>OS</span></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="solivre.html">Solivre</a>
+        <a href="livreid.html">LivreID</a>
+        <a href="vault.html">Vault</a>
+        <a href="developers.html">Developers</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+<main>
+
+  <section class="section">
+    <div class="section-inner">
+      <h1>Architecture</h1>
+      <p class="section-intro">
+        LIVRE OS is organized as a layered operating system: from COTI's gcEVM to Solivre,
+        LivreID, LivreVault, and the applications that consume proofs.
+      </p>
+      <div class="grid two">
+        <div class="card">
+          <h3>Layer Model</h3>
+          <ul class="bullets">
+            <li><strong>Layer 5</strong> — Apps & Institutions</li>
+            <li><strong>Layer 4</strong> — LivreKit SDK & APIs</li>
+            <li><strong>Layer 3</strong> — LivreID, Proof Engine, LivreVault</li>
+            <li><strong>Layer 2</strong> — Solivre Kernel</li>
+            <li><strong>Layer 1</strong> — Core Contracts on COTI</li>
+            <li><strong>Layer 0</strong> — COTI gcEVM Network</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Design Principles</h3>
+          <ul class="bullets">
+            <li>Zero raw identity on-chain</li>
+            <li>User-owned keys and storage</li>
+            <li>Minimal, non-linkable proofs</li>
+            <li>Composable claims and policies</li>
+            <li>Auditable contracts & circuits</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:0.9rem;color:var(--muted);">
+        Full architecture specifications live in the internal LIVRE OS documentation
+        (Solivre Kernel, LivreID, Proof Engine, Vault, Key Management, Nodes & Compute).
+      </p>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+
+</body>
+</html>

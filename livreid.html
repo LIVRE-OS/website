@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LivreID — Identity Names</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">LIVRE<span>OS</span></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="solivre.html">Solivre</a>
+        <a href="livreid.html">LivreID</a>
+        <a href="vault.html">Vault</a>
+        <a href="developers.html">Developers</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+<main>
+
+  <section class="section">
+    <div class="section-inner">
+      <h1>LivreID — Identity Names</h1>
+      <p class="section-intro">
+        LivreID is the naming layer of LIVRE OS: human-readable identities like
+        <strong>odin.livre</strong> that resolve to private identity anchors instead of public
+        profiles.
+      </p>
+      <div class="grid two">
+        <div class="card">
+          <h3>Features</h3>
+          <ul class="bullets">
+            <li>Simple, human-readable `.livre` names</li>
+            <li>Names resolve to identity commitments, not data</li>
+            <li>No enumeration or listing of all names</li>
+            <li>Optional aliases for different contexts</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Privacy model</h3>
+          <p>
+            Resolving a LivreID never returns personal information. It only returns the minimal
+            cryptographic anchor needed for Solivre and the Proof Engine to operate. No claims,
+            no documents, no app history are exposed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+
+</body>
+</html>
