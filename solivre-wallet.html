@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solivre Wallet — LIVRE OS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .wallet-shell {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .wallet-frame {
+      background: radial-gradient(circle at top, #191b32 0, #05060b 55%, #010109 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7);
+      padding: 18px 18px 22px;
+      margin-top: 20px;
+    }
+    .wallet-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .wallet-top-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .wallet-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+    .wallet-identity {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .wallet-identity span {
+      color: var(--accent);
+    }
+    .wallet-status-pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(12, 16, 30, 0.9);
+      color: var(--muted);
+    }
+    .wallet-main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .panel {
+      background: rgba(8, 10, 24, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 14px 16px 16px;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .panel-header h3 {
+      font-size: 0.96rem;
+    }
+    .panel-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--muted);
+    }
+    .claims-list,
+    .requests-list {
+      list-style: none;
+      margin-top: 6px;
+    }
+    .claims-list li,
+    .requests-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .claims-list li:last-child,
+    .requests-list li:last-child {
+      border-bottom: none;
+    }
+    .claim-name {
+      font-weight: 500;
+      color: var(--text);
+    }
+    .claim-meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .claim-status {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .claim-status.valid {
+      color: #12d864;
+      border-color: rgba(18, 216, 100, 0.5);
+    }
+    .claim-status.pending {
+      color: #ffd86b;
+      border-color: rgba(255, 216, 107, 0.6);
+    }
+    .badge-ephemeral {
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+    .mini-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .mini-btn {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.72rem;
+      color: var(--muted);
+      background: rgba(8, 10, 26, 0.9);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .mini-btn.primary {
+      border-color: rgba(244, 180, 60, 0.6);
+      color: #05060b;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    }
+    .wallet-bottom {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .pill-card {
+      background: rgba(5, 7, 20, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 6px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .pill-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.68rem;
+    }
+    .pill-value {
+      color: var(--text);
+      font-size: 0.8rem;
+    }
+    @media (max-width: 720px) {
+      .wallet-main-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">LIVRE<span>OS</span></div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="solivre.html">Solivre</a>
+        <a href="livreid.html">LivreID</a>
+        <a href="vault.html">Vault</a>
+        <a href="developers.html">Developers</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-inner wallet-shell">
+        <h1>Solivre Wallet · Mock UI</h1>
+        <p class="section-intro">
+          This is a static, non-functional mockup of the Solivre Wallet dashboard. It’s meant
+          to illustrate how a sovereign identity wallet could surface claims, proof requests,
+          and key status inside LIVRE OS.
+        </p>
+
+        <div class="wallet-frame">
+          <div class="wallet-top">
+            <div class="wallet-top-left">
+              <span class="wallet-label">Active identity</span>
+              <span class="wallet-identity">odin<span>.livre</span></span>
+            </div>
+            <div class="wallet-status-pill">
+              Kernel: <strong>Synced</strong> · Last proof: 2 min ago
+            </div>
+          </div>
+
+          <div class="wallet-main-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Claims</h3>
+                  <div class="panel-sub">What Solivre knows and can prove about you.</div>
+                </div>
+                <span class="tag">Identity Kernel</span>
+              </div>
+              <ul class="claims-list">
+                <li>
+                  <div>
+                    <div class="claim-name">Age over 18</div>
+                    <div class="claim-meta">Source: Govt ID · Updated: 2025-11-01</div>
+                  </div>
+                  <span class="claim-status valid">VALID</span>
+                </li>
+                <li>
+                  <div>
+                    <div class="claim-name">Residency: Portugal</div>
+                    <div class="claim-meta">Source: Utility bill · Updated: 2025-10-20</div>
+                  </div>
+                  <span class="claim-status valid">VALID</span>
+                </li>
+                <li>
+                  <div>
+                    <div class="claim-name">COTI KYB Level 2</div>
+                    <div class="claim-meta">Source: COTI Partner · Updated: 2025-09-12</div>
+                  </div>
+                  <span class="claim-status pending">VERIFY</span>
+                </li>
+              </ul>
+              <div class="mini-actions">
+                <button class="mini-btn primary">Add claim</button>
+                <button class="mini-btn">View history</button>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Proof requests</h3>
+                  <div class="panel-sub">Apps & services currently asking for proofs.</div>
+                </div>
+                <span class="tag">Requests</span>
+              </div>
+              <ul class="requests-list">
+                <li>
+                  <div>
+                    <div class="claim-name">ExchangeX · “Age over 18”</div>
+                    <div class="claim-meta">Expiry: in 10 min · Single use</div>
+                  </div>
+                  <span class="badge-ephemeral">PENDING</span>
+                </li>
+                <li>
+                  <div>
+                    <div class="claim-name">BankY · “Residency: PT”</div>
+                    <div class="claim-meta">Expiry: in 1 hour · Single use</div>
+                  </div>
+                  <span class="badge-ephemeral">PENDING</span>
+                </li>
+                <li>
+                  <div>
+                    <div class="claim-name">dAppZ · “Over 21 + Residency EU”</div>
+                    <div class="claim-meta">Expired · Last result: VALID</div>
+                  </div>
+                  <span class="badge-ephemeral">EXPIRED</span>
+                </li>
+              </ul>
+              <div class="mini-actions">
+                <button class="mini-btn primary">Approve selected</button>
+                <button class="mini-btn">Review details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="wallet-bottom">
+            <div class="pill-card">
+              <div>
+                <div class="pill-label">Keys</div>
+                <div class="pill-value">All keys healthy</div>
+              </div>
+              <span style="font-size:0.7rem;color:var(--muted);">Rotate</span>
+            </div>
+            <div class="pill-card">
+              <div>
+                <div class="pill-label">LivreVault</div>
+                <div class="pill-value">12 items · 3 certificates</div>
+              </div>
+              <span style="font-size:0.7rem;color:var(--muted);">Open vault</span>
+            </div>
+            <div class="pill-card">
+              <div>
+                <div class="pill-label">Recent proofs</div>
+                <div class="pill-value">3 VALID · 0 FAILED</div>
+              </div>
+              <span style="font-size:0.7rem;color:var(--muted);">View log</span>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted);">
+          This mock is static HTML/CSS only. In a real implementation, it would be backed by
+          the Solivre Kernel, LivreVault, and a live Proof Engine on COTI gcEVM.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+    </div>
+  </footer>
+</body>
+</html>
