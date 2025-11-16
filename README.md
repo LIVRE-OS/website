@@ -1,4 +1,5 @@
-# 🌐 LIVRE OS — Sovereign Identity Operating System  
+# 🌐 LIVRE OS
+Sovereign Identity Operating System  
 **Verify anything. Reveal nothing. Own everything.**
 
 LIVRE OS is the world’s first **identity-native operating system** — a modular, privacy-preserving foundation for digital identity, verification, and self-sovereign data control.
