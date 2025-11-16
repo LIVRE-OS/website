@@ -44,40 +44,91 @@ function getTitleFromIssue(issue) {
   return issue.title || "Untitled issue";
 }
 
+// Allowed status labels in GitHub (no prefixes)
+const STATUS_LABELS = [
+  "Backlog",
+  "Ready",
+  "In Progress",
+  "Blocked",
+  "Review",
+  "Done",
+  "Archived",
+];
+
+// Map common GitHub type labels → Notion `Type` values
+const GITHUB_LABEL_TO_TYPE = {
+  bug: "Bug",
+  Bug: "Bug",
+
+  enhancement: "Enhancement",
+  Enhancement: "Enhancement",
+
+  documentation: "Documentation",
+  docs: "Documentation",
+
+  question: "Question",
+  "help wanted": "Help Wanted",
+
+  feature: "Feature",
+  Feature: "Feature",
+
+  research: "Research",
+  Research: "Research",
+
+  improvement: "Improvement",
+  Improvement: "Improvement",
+
+  spike: "Spike",
+  Spike: "Spike",
+};
+
 // Map GitHub Issue → Notion Status
 function mapGithubToNotionStatus(issue) {
   const state = issue.state; // "open" or "closed"
   const labels = issue.labels || [];
 
-  // Find first "status/..." label, if any
+  // Find first label that matches one of our status names
   let statusLabel = null;
   for (const label of labels) {
-    if (label.name && label.name.startsWith("status/")) {
-      statusLabel = label.name.slice("status/".length); // e.g. "in-progress"
+    if (label.name && STATUS_LABELS.includes(label.name)) {
+      statusLabel = label.name;
       break;
     }
   }
 
   // If issue is closed → Done or Archived
   if (state === "closed") {
-    if (statusLabel === "archived") return "Archived";
+    if (statusLabel === "Archived") return "Archived";
     return "Done";
   }
 
-  // Issue is open → map by status label
-  switch (statusLabel) {
-    case "ready":
-      return "Ready";
-    case "in-progress":
-      return "In Progress";
-    case "blocked":
-      return "Blocked";
-    case "review":
-      return "Review";
-    case "backlog":
-    default:
-      return "Backlog";
+  // Issue is open → use label if present, otherwise default to Backlog
+  if (statusLabel) {
+    return statusLabel;
   }
+
+  return "Backlog";
+}
+
+// Extract Notion Type values from GitHub labels
+function extractTypesFromIssue(issue) {
+  const labels = issue.labels || [];
+  const types = new Set();
+
+  for (const label of labels) {
+    const name = label.name;
+    if (!name) continue;
+
+    // Skip status labels
+    if (STATUS_LABELS.includes(name)) continue;
+
+    const mapped = GITHUB_LABEL_TO_TYPE[name] || null;
+    if (mapped) {
+      types.add(mapped);
+    }
+  }
+
+  return Array.from(types); // array of Notion Type names
 }
 
 async function findTaskByIssueNumber(issueNumber) {
@@ -100,6 +151,7 @@ async function findTaskByIssueNumber(issueNumber) {
 async function createTaskFromIssue(issue) {
   const title = getTitleFromIssue(issue);
   const status = mapGithubToNotionStatus(issue);
+  const types = extractTypesFromIssue(issue);
 
   const body = {
     parent: { database_id: databaseId },
@@ -109,6 +161,9 @@ async function createTaskFromIssue(issue) {
       },
       Status: {
         select: { name: status },
+      },
+      Type: {
+        multi_select: types.map((t) => ({ name: t })),
       },
       "GitHub Issue ID": {
         number: issue.number,
@@ -134,6 +189,7 @@ async function createTaskFromIssue(issue) {
 async function updateTaskFromIssue(pageId, issue) {
   const title = getTitleFromIssue(issue);
   const status = mapGithubToNotionStatus(issue);
+  const types = extractTypesFromIssue(issue);
 
   const body = {
     properties: {
@@ -142,6 +198,9 @@ async function updateTaskFromIssue(pageId, issue) {
       },
       Status: {
         select: { name: status },
+      },
+      Type: {
+        multi_select: types.map((t) => ({ name: t })),
       },
       "GitHub URL": {
         url: issue.html_url,
