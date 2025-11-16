@@ -49,7 +49,7 @@ website/
 ├── roadmap.html        # Roadmap phases
 ├── contact.html        # Contact & links
 │
-├── solivre-wallet.html # (Optional) Wallet UI mock/demo screen
+├── solivre-wallet.html # (WIP,non nav) Wallet UI mock/demo screen
 │
 ├── styles.css          # Shared design system
 └── script.js           # Small nav/highlight script
