@@ -1,0 +1,30 @@
+<!-- verifier.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solivre Verifier – LIVRE OS MVP</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Solivre Verifier (MVP 0.1)</h1>
+    <p>Paste a proof bundle from the Agent and verify it.</p>
+
+    <div class="card">
+      <h2>Verify Proof</h2>
+      <label for="identity-id">Identity ID</label>
+      <input id="identity-id" type="text" placeholder="identityId from agent" />
+
+      <label for="proof-json">Proof JSON</label>
+      <textarea id="proof-json" rows="10" placeholder='{"identityId":"...","proof": {...}}'></textarea>
+
+      <button id="btn-verify">Verify Proof</button>
+      <div class="status" id="verify-status"></div>
+      <pre id="verify-output"></pre>
+    </div>
+  </div>
+
+  <script src="assets/js/verifier.js"></script>
+</body>
+</html>
