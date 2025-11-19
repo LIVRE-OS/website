@@ -20,7 +20,7 @@ const proofStatusEl = document.getElementById("proof-status");
 const proofOutputEl = document.getElementById("proof-output");
 
 btnCreateIdentity.addEventListener("click", async () => {
-  identityStatusEl.textContent = "Creating identity…";
+  identityStatusEl.textContent = "Creating identity...";
   identityOutputEl.textContent = "";
 
   try {
@@ -63,7 +63,7 @@ btnSaveAttrs.addEventListener("click", async () => {
     return;
   }
 
-  attrsStatusEl.textContent = "Saving attributes to Vault…";
+  attrsStatusEl.textContent = "Saving attributes to Vault...";
   attrsOutputEl.textContent = "";
 
   try {
@@ -104,7 +104,7 @@ btnGenerateProof.addEventListener("click", async () => {
     return;
   }
 
-  proofStatusEl.textContent = "Requesting proof…";
+  proofStatusEl.textContent = "Requesting proof...";
   proofOutputEl.value = "";
 
   try {

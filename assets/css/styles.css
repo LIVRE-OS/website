@@ -8,6 +8,45 @@ body {
   padding: 2rem;
 }
 
+.mvp-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f172a;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  margin-bottom: 1.5rem;
+}
+
+.mvp-logo {
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f5f7ff;
+  text-decoration: none;
+}
+
+.mvp-logo span {
+  color: #7cb5ff;
+}
+
+.mvp-nav nav {
+  display: flex;
+  gap: 1rem;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+}
+
+.mvp-nav nav a {
+  color: #cbd5f5;
+  text-decoration: none;
+}
+
+.mvp-nav nav a.active {
+  color: #7cb5ff;
+}
+
 h1, h2, h3 {
   color: #f9fafc;
 }

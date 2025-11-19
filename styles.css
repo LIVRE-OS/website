@@ -199,6 +199,34 @@ main {
   font-size: 0.95rem;
 }
 
+.mvp-cta {
+  text-align: center;
+}
+
+.mvp-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.mvp-note {
+  margin-top: 18px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.mvp-note code {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+}
+
 /* Grid & Cards */
 
 .grid {

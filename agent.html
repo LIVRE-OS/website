@@ -1,12 +1,19 @@
-<!-- agent.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Solivre Agent – LIVRE OS MVP</title>
+  <title>Solivre Agent - LIVRE OS MVP</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <header class="mvp-nav">
+    <a class="mvp-logo" href="index.html">LIVRE<span>OS</span></a>
+    <nav>
+      <a href="agent.html" class="active">Agent</a>
+      <a href="verifier.html">Verifier</a>
+    </nav>
+  </header>
+
   <div class="container">
     <h1>Solivre Agent (MVP 0.1)</h1>
     <p>Minimal agent to create an identity, store attributes, and generate a proof.</p>
@@ -20,7 +27,7 @@
 
     <div class="card">
       <h2>2. Set Attributes</h2>
-      <p class="status">We’ll store birthdate + country privately in the Vault (backend).</p>
+      <p class="status">We'll store birthdate + country privately in the Vault (backend).</p>
 
       <label for="birthdate">Birthdate (YYYY-MM-DD)</label>
       <input id="birthdate" type="text" placeholder="1990-01-01" />
@@ -34,11 +41,11 @@
     </div>
 
     <div class="card">
-      <h2>3. Generate Proof (18+ & Resident in PT)</h2>
+      <h2>3. Generate Proof (18+ &amp; Resident in PT)</h2>
       <button id="btn-generate-proof" disabled>Generate Proof</button>
       <div class="status" id="proof-status"></div>
       <textarea id="proof-output" rows="10" readonly></textarea>
-      <p class="status">You can copy this JSON and paste it into the Verifier demo.</p>
+      <p class="status">Copy this JSON and paste it into the Verifier demo.</p>
     </div>
   </div>
 

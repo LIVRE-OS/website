@@ -31,7 +31,7 @@ btnVerify.addEventListener("click", async () => {
     return;
   }
 
-  verifyStatusEl.textContent = "Verifying…";
+  verifyStatusEl.textContent = "Verifying...";
 
   try {
     const res = await fetch(`${BACKEND_URL}/proof/verify`, {
@@ -49,7 +49,7 @@ btnVerify.addEventListener("click", async () => {
       return;
     }
 
-    verifyStatusEl.textContent = data.valid ? "✅ Proof valid" : "❌ Proof invalid";
+    verifyStatusEl.textContent = data.valid ? "Proof valid" : "Proof invalid";
     verifyOutputEl.textContent = JSON.stringify(data, null, 2);
   } catch (err) {
     console.error(err);
