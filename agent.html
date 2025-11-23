@@ -7,31 +7,37 @@
 </head>
 <body>
   <header class="mvp-nav">
-    <a class="mvp-logo" href="index.html">LIVRE<span>OS</span></a>
+    <a class="mvp-logo" href="/">LIVRE<span>OS</span></a>
     <nav>
-      <a href="agent.html" class="active">Agent</a>
-      <a href="verifier.html">Verifier</a>
+      <a href="/agent" class="active">Agent</a>
+      <a href="/verifier">Verifier</a>
     </nav>
   </header>
 
   <div class="container">
-    <h1>Solivre Agent (MVP 0.1)</h1>
-    <p>Minimal agent to create an identity, store attributes, and generate a proof.</p>
+    <h1>Solivre Agent — Mythic Identity Loom</h1>
+    <p>Weave new identities, bind attributes, and forge age-of-majority proofs inside a single enchanted node.</p>
 
+    <!-- 1. Create Identity -->
     <div class="card">
       <h2>1. Create Identity</h2>
       <button id="btn-create-identity">Create Identity</button>
+
       <label for="identity-select">Active Identity</label>
       <select id="identity-select">
         <option value="">No identities yet</option>
       </select>
+
       <div class="status" id="identity-status"></div>
       <pre id="identity-output"></pre>
     </div>
 
+    <!-- 2. Set Attributes -->
     <div class="card">
       <h2>2. Set Attributes</h2>
-      <p class="status">We'll store birthdate + country privately in the Vault (backend).</p>
+      <p class="status">
+        We'll store birthdate + country privately in the Vault (backend).
+      </p>
 
       <label for="birthdate">Birthdate (YYYY-MM-DD)</label>
       <input id="birthdate" type="text" placeholder="1990-01-01" />
@@ -44,23 +50,41 @@
       <pre id="attrs-output"></pre>
     </div>
 
+    <!-- 3. Generate Proof -->
     <div class="card">
       <h2>3. Generate Proof</h2>
-      <button id="btn-generate-proof" disabled>Generate Age Proof</button>
+      <p class="status">
+        Once attributes are stored and satisfy the template (age ≥ 18, country = PT),
+        you can request a deterministic proof.
+      </p>
+
+      <button id="btn-generate-proof" disabled>Generate Proof</button>
       <div class="status" id="proof-status"></div>
       <pre id="proof-output"></pre>
-      <p class="status">Copy this JSON and paste it into the Verifier demo.</p>
     </div>
 
+    <!-- 4. Export for Verifier -->
     <div class="card">
       <h2>4. Export for Verifier</h2>
+
+      <!-- Identity Export -->
       <label for="identity-export">Identity JSON</label>
       <textarea id="identity-export" rows="6" readonly></textarea>
-      <button id="btn-copy-identity" disabled>Copy Identity JSON</button>
 
+      <div class="export-buttons">
+        <button id="btn-copy-identity" disabled>📋 Copy Identity</button>
+        <!-- Download buttons are optional; JS only uses copy buttons for now -->
+        <button id="btn-download-identity" disabled>💾 Download Identity</button>
+      </div>
+
+      <!-- Proof Export -->
       <label for="proof-export">Proof JSON</label>
       <textarea id="proof-export" rows="8" readonly></textarea>
-      <button id="btn-copy-proof" disabled>Copy Proof JSON</button>
+
+      <div class="export-buttons">
+        <button id="btn-copy-proof" disabled>📋 Copy Proof</button>
+        <button id="btn-download-proof" disabled>💾 Download Proof</button>
+      </div>
 
       <button id="btn-open-verifier">Open Verifier</button>
     </div>

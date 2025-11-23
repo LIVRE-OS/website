@@ -1,170 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>LIVRE OS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Livre Identity Node v0.2</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+ <header class="mvp-nav">
+  <a class="mvp-logo" href="/">LIVRE<span>OS</span></a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/agent">Agent</a>
+    <a href="/verifier">Verifier</a>
+  </nav>
+</header>
 
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="logo">LIVRE<span>OS</span></div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="architecture.html">Architecture</a>
-        <a href="solivre.html">Solivre</a>
-        <a href="livreid.html">LivreID</a>
-        <a href="vault.html">Vault</a>
-        <a href="developers.html">Developers</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="contact.html">Contact</a>
-        <a href="agent.html">MVP Agent</a>
-        <a href="verifier.html">MVP Verifier</a>
-      </nav>
-    </div>
-  </header>
-
-<main>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Your identity. Your keys. Your data.
-        
-        Your rules.</h1>
-      <p class="hero-subtitle">
-        LIVRE OS is the sovereign identity operating system that lets you prove anything
-        without revealing your personal data, built on Solivre, LivreID and private computation.
-      </p>
-      <div class="hero-cta">
-        <a href="solivre.html" class="btn primary">Explore Solivre</a>
-        <a href="architecture.html" class="btn ghost">View architecture</a>
-      </div>
-      <p class="hero-tagline">Verify anything · Reveal nothing · Own everything</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-inner">
-      <h2>What is LIVRE OS?</h2>
+    <div class="container">
+      <h1>Livre Identity Node v0.2</h1>
       <p>
-        LIVRE OS is an identity-native operating system. Instead of sending documents and
-        personal data to every app, you keep everything inside Solivre, your sovereign
-        identity kernel, and share only cryptographic proofs.
+        A single Fastify hearth that serves the Agent + Verifier, keeps encrypted identities alive, and lets you dance between creation and validation without leaving the realm.
       </p>
-      <div class="grid three">
-        <div class="card">
-          <h3>Solivre Kernel</h3>
-          <p>
-            Your identity engine. Manages claims, permissions, proof descriptors and key
-            lifecycle without ever exposing raw data on-chain.
-          </p>
-        </div>
-        <div class="card">
-          <h3>LivreID</h3>
-          <p>
-            Human-readable identity names like <strong>odin.livre</strong> that resolve to
-            private identity anchors instead of public profiles.
-          </p>
-        </div>
-        <div class="card">
-          <h3>LivreVault</h3>
-          <p>
-            Encrypted storage for documents, certificates, and metadata, hashed and
-            verifiable, but unreadable to anyone except you.
-          </p>
-        </div>
+
+      <div class="card">
+        <h2>Agent</h2>
+        <p>Create or load multiple identities, manage birthdate/country attributes, and generate proofs.</p>
+        <a class="btn-link" href="/agent">Open Agent</a>
+      </div>
+
+      <div class="card">
+        <h2>Verifier</h2>
+        <p>Paste the identity + proof JSON exported from the Agent to check whether it is valid.</p>
+        <a class="btn-link" href="/verifier">Open Verifier</a>
       </div>
     </div>
-  </section>
-
-  <section class="section alt">
-    <div class="section-inner">
-      <h2>How it works</h2>
-      <div class="grid three">
-        <div class="card">
-          <h3>Create your Solivre identity</h3>
-          <p>
-            Generate keys, bind your claims and choose a LivreID name. Your identity is
-            represented as cryptographic commitments, not a public profile.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Approve proof requests</h3>
-          <p>
-            Apps and institutions ask for proofs (like age or residency). You approve or deny
-            every request from within your wallet.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Private computation on COTI</h3>
-          <p>
-            LivreNodes run garbled circuits and MPC on your commitments, returning only a
-            boolean result and proof hash.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-inner">
-      <h2>Who LIVRE OS is for</h2>
-      <div class="grid three">
-        <div class="card soft">
-          <h3>Individuals</h3>
-          <p>
-            Keep your documents, claims, and identity under your control. Share proofs
-            instead of files. Reduce risk of breaches and identity theft.
-          </p>
-        </div>
-        <div class="card soft">
-          <h3>Companies & Institutions</h3>
-          <p>
-            Get compliant yes/no answers without storing sensitive user data. Lower your
-            liability and simplify onboarding.
-          </p>
-        </div>
-        <div class="card soft">
-          <h3>Developers</h3>
-          <p>
-            Integrate LIVRE OS through LivreKit SDK and APIs. Ask for proofs, not
-            documents. Build apps on top of a sovereign identity layer.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="section-inner mvp-cta">
-      <h2>Run the MVP-1 Demo</h2>
-      <p>
-        Spin up the Fastify backend locally and walk through the Solivre Agent and Verifier flows.
-        Create an identity, store attributes in the vault, and share a zero-knowledge style proof
-        without revealing the underlying data.
-      </p>
-      <div class="mvp-buttons">
-        <a href="agent.html" class="btn primary">Launch Agent</a>
-        <a href="verifier.html" class="btn ghost">Open Verifier</a>
-      </div>
-      <p class="mvp-note">
-        Backend defaults to <code>http://localhost:4000</code>. Run <code>npm run dev</code>
-        from the backend folder before using the demos.
-      </p>
-    </div>
-  </section>
-
-</main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>LIVRE OS · Sovereign Identity Operating System</span>
-      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
-    </div>
-  </footer>
-  <script src="script.js"></script>
-
-</body>
+  </body>
 </html>

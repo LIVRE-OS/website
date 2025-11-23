@@ -217,6 +217,15 @@ main {
   color: var(--muted);
   opacity: 0.85;
 }
+.export-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.export-buttons button {
+  flex: 1;
+}
 
 .mvp-note code {
   background: rgba(255, 255, 255, 0.06);
