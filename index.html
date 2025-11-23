@@ -1,37 +1,297 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Livre Identity Node v0.2</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body>
- <header class="mvp-nav">
-  <a class="mvp-logo" href="/">LIVRE<span>OS</span></a>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/agent">Agent</a>
-    <a href="/verifier">Verifier</a>
-  </nav>
-</header>
+<head>
+  <meta charset="UTF-8" />
+  <title>LIVRE OS — Sovereign Identity, Proofs & Solivre MVPs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="LIVRE OS is a sovereign identity layer for humans and apps — powering Solivre MVPs like the Identity Node, Agent, Verifier, and Vault."
+  />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        LIVRE<span>OS</span>
+      </a>
 
-    <div class="container">
-      <h1>Livre Identity Node v0.2</h1>
-      <p>
-        A single Fastify hearth that serves the Agent + Verifier, keeps encrypted identities alive, and lets you dance between creation and validation without leaving the realm.
-      </p>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <div class="card">
-        <h2>Agent</h2>
-        <p>Create or load multiple identities, manage birthdate/country attributes, and generate proofs.</p>
-        <a class="btn-link" href="/agent">Open Agent</a>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#mvp-solivre-node">Solivre Identity Node</a>
+            <a href="#mvp-agent">Agent Console</a>
+            <a href="#mvp-verifier">Verifier Console</a>
+            <a href="#mvp-vault">Livre Vault</a>
+            <a href="#mvp-kernel">ID Kernel</a>
+          </div>
+        </div>
+        <a href="#docs">Docs</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="overview">
+      <div class="hero-content">
+        <h1>LIVRE OS</h1>
+        <p class="hero-subtitle">
+          A sovereign identity layer for humans, apps, and protocols — starting with the
+          <strong>Solivre MVP</strong> suite: Identity Node, Agent, Verifier, Vault, and ID Kernel.
+        </p>
+        <div class="hero-actions">
+          <!-- TODO: update href to your real console URL when ready -->
+          <a href="#mvp-solivre-node" class="btn primary">Explore Solivre MVPs</a>
+          <!-- TODO: update href to docs site/repo -->
+          <a href="#docs" class="btn ghost">Read the docs</a>
+        </div>
+        <p class="hero-tagline">
+          Own your proofs. Keep your data. Let apps ask for <em>signals</em>, not your soul.
+        </p>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-card">
+          <h2>Identity Node v0.2</h2>
+          <p>
+            A single node that can store encrypted identities, orchestrate proofs, and expose
+            a mythic Agent + Verifier console for demos and early adopters.
+          </p>
+          <ul class="hero-list">
+            <li>🧬 Deterministic demo proofs</li>
+            <li>🔐 Local encrypted vault (file-based)</li>
+            <li>🧾 Age & residency templates</li>
+          </ul>
+          <!-- Link to GitHub or docs for the node -->
+          <!-- TODO: update href -->
+          <a href="#mvp-solivre-node" class="link-inline">Learn more about the Node →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MVPs grid -->
+    <section class="section" id="mvps">
+      <div class="section-header">
+        <h2>Solivre MVP Suite</h2>
+        <p>Each MVP is a small, focused piece of the LIVRE OS vision. Some are live, others are still forging.</p>
       </div>
 
-      <div class="card">
-        <h2>Verifier</h2>
-        <p>Paste the identity + proof JSON exported from the Agent to check whether it is valid.</p>
-        <a class="btn-link" href="/verifier">Open Verifier</a>
+      <div class="mvp-grid">
+        <!-- Solivre Identity Node -->
+        <article class="card mvp-card" id="mvp-solivre-node">
+          <div class="card-badge live">Live</div>
+          <h3>Solivre Identity Node</h3>
+          <p class="card-subtitle">Core local node for identities, policies, and proofs.</p>
+          <p>
+            A Fastify-based node that serves the Agent + Verifier UI, keeps identities in an encrypted vault,
+            and exposes an HTTP API for proof flows.
+          </p>
+          <ul class="card-list">
+            <li>Single-process node with API + static UI</li>
+            <li>In-memory registry + file-based vault</li>
+            <li>Health check & deterministic demo proofs</li>
+          </ul>
+          <div class="card-actions">
+            <!-- TODO: update link when you publish docs or repo -->
+            <a href="#" class="btn small">View Node Docs</a>
+          </div>
+        </article>
+
+        <!-- Agent Console -->
+        <article class="card mvp-card" id="mvp-agent">
+          <div class="card-badge live">Live</div>
+          <h3>Agent Console</h3>
+          <p class="card-subtitle">Mythic Identity Loom, running in your browser.</p>
+          <p>
+            A guided UI to create identities, bind birthdate/country attributes into the Vault, and request
+            age-based proofs without exposing raw data.
+          </p>
+          <ul class="card-list">
+            <li>Local-first identity creation</li>
+            <li>Client-side validation of attributes</li>
+            <li>One-click export of Identity + Proof JSON</li>
+          </ul>
+          <div class="card-actions">
+            <!-- This is your backend console URL once deployed -->
+            <!-- TODO: update href to your running node: e.g. https://node.livre-os.com/agent -->
+            <a href="#" class="btn small">Open Agent (dev)</a>
+          </div>
+        </article>
+
+        <!-- Verifier Console -->
+        <article class="card mvp-card" id="mvp-verifier">
+          <div class="card-badge live">Live</div>
+          <h3>Verifier Console</h3>
+          <p class="card-subtitle">Simple JSON-based verification for demos.</p>
+          <p>
+            Paste exported Identity + Proof bundles from the Agent and let the Verifier confirm whether the
+            claims match the current Vault state and template rules.
+          </p>
+          <ul class="card-list">
+            <li>JSON paste / import flows</li>
+            <li>Clear “valid / invalid” explanation</li>
+            <li>Roadmap: richer templates & issuer proofs</li>
+          </ul>
+          <div class="card-actions">
+            <!-- TODO: update href to real verifier URL -->
+            <a href="#" class="btn small">Open Verifier (dev)</a>
+          </div>
+        </article>
+
+        <!-- Livre Vault -->
+        <article class="card mvp-card" id="mvp-vault">
+          <div class="card-badge wip">Working on it</div>
+          <h3>Livre Vault</h3>
+          <p class="card-subtitle">Encrypted identity vault with export/import semantics.</p>
+          <p>
+            A file-based encrypted vault for early experiments, evolving towards a secure, portable identity
+            container for self-hosted or delegated storage.
+          </p>
+          <ul class="card-list">
+            <li>Local encrypted file store</li>
+            <li>Vault key + passphrase model</li>
+            <li>Future: rotation, backup, recovery paths</li>
+          </ul>
+          <div class="card-actions">
+            <button class="btn small disabled" disabled>
+              API & UI — forging…
+            </button>
+          </div>
+        </article>
+
+        <!-- ID Kernel -->
+        <article class="card mvp-card" id="mvp-kernel">
+          <div class="card-badge wip">Working on it</div>
+          <h3>ID Kernel</h3>
+          <p class="card-subtitle">Core identity model & claim registry.</p>
+          <p>
+            A minimal kernel defining identities, claims, and proof templates — decoupled from storage and
+            transport so it can live in nodes, wallets, or L2s.
+          </p>
+          <ul class="card-list">
+            <li>Schema for identities & claims</li>
+            <li>Template-driven proof descriptors</li>
+            <li>Future: on-chain & off-chain adapters</li>
+          </ul>
+          <div class="card-actions">
+            <button class="btn small disabled" disabled>
+              Spec & SDK — forging…
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Docs / Specs -->
+    <section class="section" id="docs">
+      <div class="section-header">
+        <h2>Docs & Specs</h2>
+        <p>High-level documentation for builders, institutions, and future node operators.</p>
+      </div>
+
+      <div class="docs-grid">
+        <article class="card">
+          <h3>Architecture Overview</h3>
+          <p>
+            How the Identity Node, Vault, Agent, Verifier, and Proof Orchestrator fit together, and how Solivre
+            plugs into the wider LIVRE OS.
+          </p>
+          <!-- TODO: update link to docs/architecture.md on GitHub or docs site -->
+          <a href="#" class="link-inline">Read architecture →</a>
+        </article>
+
+        <article class="card">
+          <h3>Proof Templates</h3>
+          <p>
+            The first generation of deterministic demo templates, from age-over-18 + residency to more advanced,
+            privacy-preserving schemas.
+          </p>
+          <!-- TODO: update link -->
+          <a href="#" class="link-inline">View templates →</a>
+        </article>
+
+        <article class="card">
+          <h3>Road to Real Crypto Proofs</h3>
+          <p>
+            How the MVP will evolve from deterministic hashes into true GC/MPC + ZK-friendly proof systems
+            backed by a Proof Orchestrator contract.
+          </p>
+          <!-- TODO: update link -->
+          <a href="#" class="link-inline">Read roadmap →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section section-alt" id="roadmap">
+      <div class="section-header">
+        <h2>Roadmap — From MVP to MythOS</h2>
+        <p>A living outline of how the Solivre MVP grows into a full LIVRE OS stack.</p>
+      </div>
+
+      <ol class="roadmap">
+        <li>
+          <h4>Phase 1 — Local Identity Node MVP</h4>
+          <p>Deterministic proofs, local Vault, Agent + Verifier console, simple templates.</p>
+        </li>
+        <li>
+          <h4>Phase 2 — Proof Orchestrator & GC/MPC hooks</h4>
+          <p>Move from demo hashes to real cryptographic proofs with isolated proof descriptors.</p>
+        </li>
+        <li>
+          <h4>Phase 3 — Wallet & App Integrations</h4>
+          <p>Connect Solivre with apps, wallets, and L2s as an identity-native layer.</p>
+        </li>
+        <li>
+          <h4>Phase 4 — LIVRE MythOS</h4>
+          <p>A full sovereign operating layer, blending identity, consent, and composable proofs.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> LIVRE OS — forged with Solivre.</p>
+      <div class="footer-links">
+        <!-- TODO: update links -->
+        <a href="https://github.com/LIVRE-OS" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#docs">Docs</a>
+        <a href="#roadmap">Roadmap</a>
       </div>
     </div>
-  </body>
+  </footer>
+
+  <script>
+    // Simple mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav   = document.querySelector('.nav-links');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+        toggle.classList.toggle('is-open');
+      });
+    }
+
+    // Footer year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
 </html>
