@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LIVRE OS — Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="mvps.html#identity-node">Identity Node</a>
+            <a href="mvps.html#agent-console">Agent Console</a>
+            <a href="mvps.html#verifier-console">Verifier Console</a>
+            <a href="mvps.html#livre-vault">Livre Vault</a>
+            <a href="mvps.html#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+        <a href="docs.html" class="active">Docs</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero small">
+      <div class="hero-inner">
+        <h1>Documentation</h1>
+        <p class="hero-subtitle">
+          High-level specs for humans first. Wire-ready details in the repos.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card-grid docs-grid">
+          <article class="card">
+            <h3>Claims Framework</h3>
+            <p>How LIVRE OS models identities, claims, templates, and proofs.</p>
+            <p class="card-meta">Status: Draft · v0.1</p>
+            <!-- Link to your markdown or Notion later -->
+            <span class="pill">Working on it</span>
+          </article>
+
+          <article class="card">
+            <h3>LivreID Namespace</h3>
+            <p>Human-readable identifiers and stable handles for agents and apps.</p>
+            <p class="card-meta">Status: Draft · v0.1</p>
+            <span class="pill">Working on it</span>
+          </article>
+
+          <article class="card">
+            <h3>Proof Request Architecture</h3>
+            <p>How apps ask for proofs, how Agents respond, and how Verifiers check.</p>
+            <p class="card-meta">Status: Draft · v0.1</p>
+            <span class="pill">Working on it</span>
+          </article>
+
+          <article class="card">
+            <h3>Solivre Kernel</h3>
+            <p>Core APIs exposed by the Identity Kernel that other services depend on.</p>
+            <p class="card-meta">Status: Draft · v0.1</p>
+            <span class="pill">Working on it</span>
+          </article>
+
+          <article class="card">
+            <h3>Sovereign Storage Layer (LivreVault)</h3>
+            <p>Encryption model, key hierarchy, and storage backends.</p>
+            <p class="card-meta">Status: Draft · v0.1</p>
+            <span class="pill">Working on it</span>
+          </article>
+        </div>
+
+        <div class="callout">
+          <p>
+            Source-level docs live with the code:
+            <a href="https://github.com/LIVRE-OS" target="_blank" rel="noreferrer">
+              GitHub · LIVRE OS →
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> LIVRE OS · Solivre MVP</p>
+      <p class="footer-note">Specs will evolve as we ship more nodes.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

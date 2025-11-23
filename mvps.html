@@ -1,0 +1,201 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LIVRE OS — Solivre MVP Suite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn active">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="#identity-node">Identity Node</a>
+            <a href="#agent-console">Agent Console</a>
+            <a href="#verifier-console">Verifier Console</a>
+            <a href="#livre-vault">Livre Vault</a>
+            <a href="#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+
+        <a href="docs.html">Docs</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero small">
+      <div class="hero-inner">
+        <h1>Solivre MVP Suite</h1>
+        <p class="hero-subtitle">
+          A set of focused prototypes that exercise the LIVRE OS design in the real world.
+        </p>
+      </div>
+    </section>
+
+    <section id="identity-node" class="section">
+      <div class="container">
+        <div class="mvp-header">
+          <h2>Identity Node</h2>
+          <span class="mvp-status live">Live</span>
+        </div>
+        <p class="section-lead">
+          One Fastify process that serves the Agent &amp; Verifier UIs, exposes APIs, and keeps
+          encrypted identities in a local Vault.
+        </p>
+
+        <div class="mvp-layout">
+          <div class="mvp-main">
+            <ul class="bullet-list">
+              <li>Stores identity records, attributes, and commitments.</li>
+              <li>Generates deterministic demo proofs for age + residency templates.</li>
+              <li>Hosts Agent and Verifier on the same origin for easy demos.</li>
+            </ul>
+          </div>
+          <aside class="mvp-aside">
+            <h3>Try the demo</h3>
+            <p class="aside-text">
+              Run the node locally and open the Agent &amp; Verifier consoles.
+            </p>
+            <!-- Update this URL to your local/backend origin if needed -->
+            <a class="btn-primary full" href="http://localhost:4000/agent" target="_blank" rel="noreferrer">
+              Open Agent Console
+            </a>
+            <a class="btn-secondary full" href="http://localhost:4000/verifier" target="_blank" rel="noreferrer">
+              Open Verifier Console
+            </a>
+            <p class="aside-footnote">
+              Not production-ready. For demos &amp; experiments only.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="agent-console" class="section alt">
+      <div class="container">
+        <div class="mvp-header">
+          <h2>Agent Console</h2>
+          <span class="mvp-status live">Live</span>
+        </div>
+        <p class="section-lead">
+          A browser console where a human user (the Agent) can create identities, attach
+          attributes, and request proofs.
+        </p>
+
+        <div class="card-grid">
+          <article class="card">
+            <h3>Identity creation</h3>
+            <p>Create multiple local identities and switch between them via a dropdown.</p>
+          </article>
+          <article class="card">
+            <h3>Attributes &amp; Vault</h3>
+            <p>Bind birthdate + country to identities and write them to the encrypted Vault.</p>
+          </article>
+          <article class="card">
+            <h3>Proof export</h3>
+            <p>Generate proofs and export Identity + Proof JSON for verification.</p>
+          </article>
+        </div>
+
+        <p class="coming-note">
+          This console will evolve into a full Solivre Agent with multiple proof templates,
+          notifications, and app-specific proof flows.
+        </p>
+      </div>
+    </section>
+
+    <section id="verifier-console" class="section">
+      <div class="container">
+        <div class="mvp-header">
+          <h2>Verifier Console</h2>
+          <span class="mvp-status live">Live</span>
+        </div>
+        <p class="section-lead">
+          A simple UI that lets integrators paste an Identity payload and a Proof bundle,
+          and see whether the claim checks out.
+        </p>
+
+        <div class="mvp-layout">
+          <div class="mvp-main">
+            <ol class="bullet-list numbered">
+              <li>Paste the Identity JSON exported from the Agent.</li>
+              <li>Paste the Proof JSON (or entire bundle).</li>
+              <li>Click <strong>Verify</strong> to see whether the proof matches the stored attributes + template.</li>
+            </ol>
+          </div>
+          <aside class="mvp-aside">
+            <h3>Intended role</h3>
+            <p class="aside-text">
+              In production, Verifiers will usually be apps or contracts — this console
+              is a human-friendly debugging surface.
+            </p>
+            <a class="btn-secondary full" href="http://localhost:4000/verifier" target="_blank" rel="noreferrer">
+              Open Verifier Console
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="livre-vault" class="section alt">
+      <div class="container">
+        <div class="mvp-header">
+          <h2>Livre Vault</h2>
+          <span class="mvp-status forging">Forging</span>
+        </div>
+        <p class="section-lead">
+          Encrypted storage that will back the Identity Node and later the full LIVRE OS network.
+        </p>
+
+        <p class="coming-note">
+          The current MVP uses a file-based Vault for development only.
+          A hardened Vault spec (pluggable backends, rotation, multi-device sync)
+          is in the works. <span class="pill">Working on it</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="id-kernel" class="section">
+      <div class="container">
+        <div class="mvp-header">
+          <h2>ID Kernel</h2>
+          <span class="mvp-status forging">Forging</span>
+        </div>
+        <p class="section-lead">
+          The minimal API surface other apps call to resolve identities, claims, and proofs.
+        </p>
+        <p class="coming-note">
+          The ID Kernel spec exists in draft form and will be implemented after the
+          Solivre demo flows stabilize. <span class="pill">Working on it</span>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> LIVRE OS · Solivre MVP</p>
+      <p class="footer-note">Some MVPs are live, others are still being forged.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

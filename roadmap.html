@@ -2,89 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roadmap · LIVRE OS</title>
+  <title>LIVRE OS — Roadmap</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">LIVRE<span>OS</span></div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="architecture.html">Architecture</a>
-        <a href="solivre.html">Solivre</a>
-        <a href="livreid.html">LivreID</a>
-        <a href="vault.html">Vault</a>
-        <a href="developers.html">Developers</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="contact.html">Contact</a>
-        <a href="agent.html">MVP Agent</a>
-        <a href="verifier.html">MVP Verifier</a>
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="mvps.html#identity-node">Identity Node</a>
+            <a href="mvps.html#agent-console">Agent Console</a>
+            <a href="mvps.html#verifier-console">Verifier Console</a>
+            <a href="mvps.html#livre-vault">Livre Vault</a>
+            <a href="mvps.html#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+        <a href="docs.html">Docs</a>
+        <a href="roadmap.html" class="active">Roadmap</a>
       </nav>
     </div>
   </header>
 
-<main>
+  <main>
+    <section class="hero small">
+      <div class="hero-inner">
+        <h1>Roadmap</h1>
+        <p class="hero-subtitle">
+          A living path from local demos to a sovereign, networked identity layer.
+        </p>
+      </div>
+    </section>
 
-  <section class="section">
-    <div class="section-inner">
-      <h1>Roadmap</h1>
-      <p class="section-intro">
-        LIVRE OS is being developed in stages, starting from core specifications and a reference
-        wallet, then expanding into developer tools and institutional integrations.
-      </p>
-      <div class="grid two">
-        <div class="card">
-          <h3>Phase 0 - Specification</h3>
-          <ul class="bullets">
-            <li>Solivre Kernel spec</li>
-            <li>LivreID namespace standard</li>
-            <li>Proof Engine & LivreVault design</li>
-            <li>Key management & node model</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Phase 1 - MVP</h3>
-          <ul class="bullets">
-            <li>Reference Solivre wallet</li>
-            <li>Basic LivreID registration</li>
-            <li>Single proof type (e.g. AGE_OVER_18)</li>
-            <li>GC/MPC integration with COTI nodes</li>
-          </ul>
+    <section class="section">
+      <div class="container">
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-badge">M1</div>
+            <div class="timeline-body">
+              <h3>Define MVP Scope</h3>
+              <p>
+                Lock the minimal feature set for the Solivre Identity Node,
+                Agent, and Verifier — plus their API contracts.
+              </p>
+              <p class="timeline-meta">Area: Solivre · Status: In Progress</p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-badge">M2</div>
+            <div class="timeline-body">
+              <h3>Solivre Kernel Spec</h3>
+              <p>
+                Finalize the Identity Kernel interfaces used by apps, agents,
+                and proof orchestrators.
+              </p>
+              <p class="timeline-meta">Area: Solivre · Status: Planned</p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-badge">M3</div>
+            <div class="timeline-body">
+              <h3>LivreID Namespace Draft</h3>
+              <p>
+                Design a human-friendly namespace for identities and apps,
+                including reservation, resolution, and portability.
+              </p>
+              <p class="timeline-meta">Area: Namespace · Status: Planned</p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-badge">M4</div>
+            <div class="timeline-body">
+              <h3>Proof Request Flow v0.1</h3>
+              <p>
+                Implement the end-to-end flow: Institution → Proof Request →
+                Solivre Agent → Proof → Verifier.
+              </p>
+              <p class="timeline-meta">Area: Proof Engine · Status: Planned</p>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-badge">M5</div>
+            <div class="timeline-body">
+              <h3>Smart Contract Interfaces v1</h3>
+              <p>
+                Expose proof verification and claim references on-chain, so
+                other protocols can consume LIVRE OS signals.
+              </p>
+              <p class="timeline-meta">Area: Contracts · Status: Planned</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout">
+          <p>
+            This roadmap is intentionally small. The goal is to sharpen the
+            core experience before scaling to a full network.
+          </p>
         </div>
       </div>
-      <div class="grid two" style="margin-top:16px;">
-        <div class="card">
-          <h3>Phase 2 - Developer Platform</h3>
-          <ul class="bullets">
-            <li>LivreKit SDKs and REST APIs</li>
-            <li>Integration guides for companies</li>
-            <li>More proof types and claims</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Phase 3 - Ecosystem</h3>
-          <ul class="bullets">
-            <li>Institution partnerships and pilots</li>
-            <li>Open node participation</li>
-            <li>Expanded governance and upgrades</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
+    </section>
+  </main>
 
   <footer class="footer">
-    <div class="footer-inner">
-      <span>LIVRE OS · Sovereign Identity Operating System</span>
-      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> LIVRE OS · Solivre MVP</p>
+      <p class="footer-note">Timelines and milestones are subject to change as the forge evolves.</p>
     </div>
   </footer>
-  <script src="script.js"></script>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
