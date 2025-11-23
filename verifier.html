@@ -20,15 +20,19 @@
 
     <div class="card">
       <h2>Verify Proof</h2>
-      <label for="identity-id">Identity ID</label>
-      <input id="identity-id" type="text" placeholder="identityId from agent" />
+      <label for="identity-json">Identity JSON</label>
+      <textarea
+        id="identity-json"
+        rows="5"
+        placeholder='{"identityId":"...","commitment":"...","attributesRoot":"..."}'
+      ></textarea>
 
       <label for="proof-json">Proof JSON</label>
-      <textarea id="proof-json" rows="10" placeholder='{"identityId":"...","proof": {...}}'></textarea>
+      <textarea id="proof-json" rows="10" placeholder='{"identityId":"...","proof":{"identityId":"...","templateId":"age_over_18_and_resident_pt","proofHash":"...","issuedAt":"..."}}'></textarea>
 
-      <button id="btn-verify">Verify Proof</button>
+      <button id="verify-btn">Verify Proof</button>
       <div class="status" id="verify-status"></div>
-      <pre id="verify-output"></pre>
+      <pre id="verify-result"></pre>
     </div>
   </div>
 

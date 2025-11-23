@@ -1,58 +1,85 @@
 // assets/js/verifier.js
 
-const BACKEND_URL = "http://localhost:4000";
+const API_BASE = window.API_BASE ?? "http://localhost:4000";
 
-const identityIdInput = document.getElementById("identity-id");
+const identityJsonInput = document.getElementById("identity-json");
 const proofJsonInput = document.getElementById("proof-json");
-const btnVerify = document.getElementById("btn-verify");
+const btnVerify = document.getElementById("verify-btn");
 const verifyStatusEl = document.getElementById("verify-status");
-const verifyOutputEl = document.getElementById("verify-output");
+const verifyResultEl = document.getElementById("verify-result");
 
 btnVerify.addEventListener("click", async () => {
   verifyStatusEl.textContent = "";
-  verifyOutputEl.textContent = "";
+  verifyResultEl.textContent = "";
 
-  const identityId = identityIdInput.value.trim();
-  if (!identityId) {
-    verifyStatusEl.textContent = "Please provide identityId.";
-    return;
-  }
-
-  let parsed;
+  let identityPayload;
   try {
-    parsed = JSON.parse(proofJsonInput.value);
+    identityPayload = JSON.parse(identityJsonInput.value);
   } catch (err) {
-    verifyStatusEl.textContent = "Invalid JSON.";
+    verifyStatusEl.textContent = "Invalid identity JSON.";
     return;
   }
 
-  if (!parsed || !parsed.proof) {
-    verifyStatusEl.textContent = "Expected object with { identityId, proof }.";
+  if (!identityPayload || typeof identityPayload !== "object") {
+    verifyStatusEl.textContent = "Identity JSON must be an object.";
     return;
   }
 
+  let proofPayload;
+  try {
+    proofPayload = JSON.parse(proofJsonInput.value);
+  } catch (err) {
+    verifyStatusEl.textContent = "Invalid proof JSON.";
+    return;
+  }
+
+  if (!proofPayload || typeof proofPayload !== "object") {
+    verifyStatusEl.textContent = "Proof JSON must be an object.";
+    return;
+  }
+
+  const derivedIdentityId =
+    (typeof proofPayload.identityId === "string" && proofPayload.identityId) ||
+    (typeof identityPayload.identityId === "string" &&
+      identityPayload.identityId);
+  if (!derivedIdentityId) {
+    verifyStatusEl.textContent = "identityId missing from payloads.";
+    return;
+  }
+
+  const proofBody =
+    proofPayload.proof && typeof proofPayload.proof === "object"
+      ? proofPayload.proof
+      : proofPayload;
+
+  btnVerify.disabled = true;
   verifyStatusEl.textContent = "Verifying...";
 
   try {
-    const res = await fetch(`${BACKEND_URL}/proof/verify`, {
+    const res = await fetch(`${API_BASE}/proof/verify`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        identityId,
-        proof: parsed.proof,
+        identityId: derivedIdentityId,
+        proof: proofBody,
       }),
     });
 
-    const data = await res.json();
+    const data = await res.json().catch(() => ({}));
     if (!res.ok) {
-      verifyStatusEl.textContent = `Error: ${data.error || "unknown"}`;
+      const message = data.error || "Verification failed.";
+      verifyStatusEl.textContent = message;
       return;
     }
 
-    verifyStatusEl.textContent = data.valid ? "Proof valid" : "Proof invalid";
-    verifyOutputEl.textContent = JSON.stringify(data, null, 2);
+    verifyStatusEl.textContent = data.valid
+      ? "Proof is valid ✅."
+      : "Proof is invalid ❌";
+    verifyResultEl.textContent = JSON.stringify(data, null, 2);
   } catch (err) {
     console.error(err);
     verifyStatusEl.textContent = "Network error.";
+  } finally {
+    btnVerify.disabled = false;
   }
 });

@@ -21,6 +21,10 @@
     <div class="card">
       <h2>1. Create Identity</h2>
       <button id="btn-create-identity">Create Identity</button>
+      <label for="identity-select">Active Identity</label>
+      <select id="identity-select">
+        <option value="">No identities yet</option>
+      </select>
       <div class="status" id="identity-status"></div>
       <pre id="identity-output"></pre>
     </div>
@@ -41,11 +45,24 @@
     </div>
 
     <div class="card">
-      <h2>3. Generate Proof (18+ &amp; Resident in PT)</h2>
-      <button id="btn-generate-proof" disabled>Generate Proof</button>
+      <h2>3. Generate Proof</h2>
+      <button id="btn-generate-proof" disabled>Generate Age Proof</button>
       <div class="status" id="proof-status"></div>
-      <textarea id="proof-output" rows="10" readonly></textarea>
+      <pre id="proof-output"></pre>
       <p class="status">Copy this JSON and paste it into the Verifier demo.</p>
+    </div>
+
+    <div class="card">
+      <h2>4. Export for Verifier</h2>
+      <label for="identity-export">Identity JSON</label>
+      <textarea id="identity-export" rows="6" readonly></textarea>
+      <button id="btn-copy-identity" disabled>Copy Identity JSON</button>
+
+      <label for="proof-export">Proof JSON</label>
+      <textarea id="proof-export" rows="8" readonly></textarea>
+      <button id="btn-copy-proof" disabled>Copy Proof JSON</button>
+
+      <button id="btn-open-verifier">Open Verifier</button>
     </div>
   </div>
 
