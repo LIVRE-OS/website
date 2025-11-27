@@ -8,57 +8,117 @@
 </head>
 <body>
 
+  <!-- Shared nav -->
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">LIVRE<span>OS</span></div>
-      <nav>
-        <a href="index.html">Home</a>
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
         <a href="architecture.html">Architecture</a>
         <a href="solivre.html">Solivre</a>
         <a href="livreid.html">LivreID</a>
         <a href="vault.html">Vault</a>
         <a href="developers.html">Developers</a>
         <a href="roadmap.html">Roadmap</a>
-        <a href="contact.html">Contact</a>
-        <a href="agent.html">MVP Agent</a>
-        <a href="verifier.html">MVP Verifier</a>
+        <a href="contact.html" class="active">Contact</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="mvps.html#identity-node">Identity Node</a>
+            <a href="mvps.html#agent-console">Agent Console</a>
+            <a href="mvps.html#verifier-console">Verifier Console</a>
+            <a href="mvps.html#livre-vault">Livre Vault</a>
+            <a href="mvps.html#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/agent.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Agent
+        </a>
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/verifier.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Verifier
+        </a>
       </nav>
     </div>
   </header>
 
-<main>
-
-  <section class="section">
-    <div class="section-inner">
-      <h1>Contact</h1>
-      <p class="section-intro">
-        LIVRE OS is currently in active design and early specification. If you’re interested in
-        building, auditing, or integrating, reach out and let’s talk.
-      </p>
-      <div class="card">
-        <h3>Get in touch</h3>
-        <p style="font-size:0.9rem;color:var(--muted);margin-bottom:8px;">
-          For collaborations, technical discussions, or ecosystem alignment, you can contact:
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Contact</h1>
+        <p class="section-lead">
+          LIVRE OS is currently in active design and early specification. If you’re interested in
+          building, auditing, or integrating, reach out and let’s talk.
         </p>
-        <ul class="bullets">
-          <li>Email: <a href="mailto:oborson2@gmail.com" style="color:var(--accent);text-decoration:none;">0din</a></li>
-          <li>Site: <a href="https://livre-os.github.io/website/" style="color:var(--accent);text-decoration:none;">livre-os.github.io/website</a></li>
-          <li>GitHub: <a href="https://github.com/LIVRE-OS" style="color:var(--accent);text-decoration:none;">github.com/LIVRE-OS</a></li>
-          <li>Docs: <span style="color:var(--muted);">Internal Notion (coming soon public)</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-</main>
+<article class="card">
+  <h3>Get in touch</h3>
+  <p class="contact-note">
+    For collaborations, technical discussions, or ecosystem alignment, you can contact:
+  </p>
+  <ul class="bullets">
+    <li>
+      Email:
+      <a href="mailto:oborson2@gmail.com">@livre</a>
+    </li>
+    <li>
+      Site:
+      <a href="https://livre-os.github.io/website/" target="_blank" rel="noreferrer">
+        LIVRE OS
+      </a>
+    </li>
+    <li>
+      GitHub:
+            <a href="https://github.com/LIVRE-OS" target="_blank" rel="noreferrer">
+        LIVRE OS
+      </a>
+    </li>
+    <li>
+      Docs:
+<a
+  href="https://www.notion.so/LIVRE-OS-2ae7a284a873807085a5c7bcdb5b1e43"
+  target="_blank"
+  rel="noreferrer"
+  class="doc-pill"
+>
+  LIVRE OS · Public Notion
+</a>
+
+    </li>
+  </ul>
+</article>
+
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>LIVRE OS · Sovereign Identity Operating System</span>
-      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+      <span>© <span id="year"></span> LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-note">
+        Solivre · LivreID · LivreVault · Built for COTI gcEVM · Experimental, not production-ready.
+      </span>
     </div>
   </footer>
-  <script src="script.js"></script>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

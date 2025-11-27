@@ -8,65 +8,94 @@
 </head>
 <body>
 
+  <!-- Shared nav using .nav / .nav-inner / .nav-logo / .nav-links -->
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">LIVRE<span>OS</span></div>
-      <nav>
-        <a href="index.html">Home</a>
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
         <a href="architecture.html">Architecture</a>
         <a href="solivre.html">Solivre</a>
         <a href="livreid.html">LivreID</a>
         <a href="vault.html">Vault</a>
-        <a href="developers.html">Developers</a>
+        <a href="developers.html" class="active">Developers</a>
         <a href="roadmap.html">Roadmap</a>
         <a href="contact.html">Contact</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="mvps.html#identity-node">Identity Node</a>
+            <a href="mvps.html#agent-console">Agent Console</a>
+            <a href="mvps.html#verifier-console">Verifier Console</a>
+            <a href="mvps.html#livre-vault">Livre Vault</a>
+            <a href="mvps.html#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+
         <a href="agent.html">MVP Agent</a>
         <a href="verifier.html">MVP Verifier</a>
       </nav>
     </div>
   </header>
 
-<main>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Developers</h1>
+        <p class="section-lead">
+          LIVRE OS exposes a clean developer surface through LivreKit: SDKs and APIs
+          that let you request proofs instead of documents, verify results, and
+          integrate sovereign identity into your app without handling sensitive data.
+        </p>
 
-  <section class="section">
-    <div class="section-inner">
-      <h1>Developers</h1>
-      <p class="section-intro">
-        LIVRE OS exposes a clean developer surface through LivreKit: SDKs and APIs that let you
-        request proofs instead of documents, verify results, and integrate sovereign identity
-        into your app without handling sensitive data.
-      </p>
-      <div class="grid two">
-        <div class="card">
-          <h3>What you can build</h3>
-          <ul class="bullets">
-            <li>Onboarding flows that ask for "proof of age" instead of ID files</li>
-            <li>Access control based on membership or qualification proofs</li>
-            <li>Compliance-friendly KYC/KYB integrations</li>
-            <li>Games and apps that respect user privacy by design</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Integration model</h3>
-          <p>
-            Your backend defines the proof you need (e.g. AGE_OVER_18, RESIDENCY_IN_COUNTRY),
-            sends a request to the user’s Solivre wallet, and receives a verifiable yes/no
-            result plus a proof hash. No raw documents ever touch your servers.
-          </p>
+        <div class="card-grid dev-grid">
+          <article class="card">
+            <h3>What you can build</h3>
+            <ul class="bullets">
+              <li>Onboarding flows that ask for “proof of age” instead of ID files.</li>
+              <li>Access control based on membership or qualification proofs.</li>
+              <li>Compliance-friendly KYC/KYB integrations.</li>
+              <li>Games and apps that respect user privacy by design.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Integration model</h3>
+            <p>
+              Your backend defines the proof you need (e.g. <code>AGE_OVER_18</code>,
+              <code>RESIDENCY_IN_COUNTRY</code>), sends a request to the user’s
+              Solivre wallet, and receives a verifiable yes/no result plus a proof hash.
+              No raw documents ever touch your servers.
+            </p>
+            <p>
+              Early MVPs expose this flow via simple HTTP endpoints so you can start
+              prototyping without committing to any specific chain, wallet, or stack.
+            </p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
-
-</main>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>LIVRE OS · Sovereign Identity Operating System</span>
-      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+      <span>© <span id="year"></span> LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-note">
+        Solivre · LivreID · LivreVault · Built for COTI gcEVM · Experimental, not production-ready.
+      </span>
     </div>
   </footer>
-  <script src="script.js"></script>
-
+  
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

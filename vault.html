@@ -2,72 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>LivreVault</title>
+  <title>LivreVault · Sovereign Storage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
+  <!-- Shared nav -->
   <header class="nav">
     <div class="nav-inner">
-      <div class="logo">LIVRE<span>OS</span></div>
-      <nav>
-        <a href="index.html">Home</a>
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="index.html">Overview</a>
         <a href="architecture.html">Architecture</a>
         <a href="solivre.html">Solivre</a>
         <a href="livreid.html">LivreID</a>
-        <a href="vault.html">Vault</a>
+        <a href="vault.html" class="active">Vault</a>
         <a href="developers.html">Developers</a>
         <a href="roadmap.html">Roadmap</a>
         <a href="contact.html">Contact</a>
-        <a href="agent.html">MVP Agent</a>
-        <a href="verifier.html">MVP Verifier</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="mvps.html#identity-node">Identity Node</a>
+            <a href="mvps.html#agent-console">Agent Console</a>
+            <a href="mvps.html#verifier-console">Verifier Console</a>
+            <a href="mvps.html#livre-vault">Livre Vault</a>
+            <a href="mvps.html#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/agent.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Agent
+        </a>
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/verifier.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Verifier
+        </a>
       </nav>
     </div>
   </header>
 
-<main>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>LivreVault · Sovereign Storage</h1>
+        <p class="section-lead">
+          LivreVault is the encrypted storage layer for LIVRE OS. It lets you keep documents,
+          certificates, metadata, and recovery materials under your control — encrypted locally,
+          stored across nodes, and referenced on-chain only via hashes.
+        </p>
 
-  <section class="section">
-    <div class="section-inner">
-      <h1>LivreVault - Sovereign Storage</h1>
-      <p class="section-intro">
-        LivreVault is the encrypted storage layer for LIVRE OS. It lets you keep documents,
-        certificates, metadata, and recovery materials under your control, encrypted locally,
-        stored across nodes, and committed on-chain via hashes.
-      </p>
-      <div class="grid two">
-        <div class="card">
-          <h3>What you can store</h3>
-          <ul class="bullets">
-            <li>Passports, IDs, residency proofs</li>
-            <li>Academic and professional certificates</li>
-            <li>KYB/KYC documents</li>
-            <li>Encrypted recovery shards</li>
-            <li>App-specific identity data</li>
-          </ul>
+        <div class="card-grid dev-grid">
+          <article class="card">
+            <h3>What you can store</h3>
+            <ul class="bullets">
+              <li>Passports, IDs, and residency proofs.</li>
+              <li>Academic and professional certificates.</li>
+              <li>KYB/KYC documents and dossiers.</li>
+              <li>Encrypted recovery shards and key material.</li>
+              <li>App-specific identity data and policies.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Security model</h3>
+            <p>
+              Everything is encrypted on your device before it moves anywhere. Nodes only see
+              encrypted blobs and cannot decrypt them. On-chain, only hashed commitments are
+              stored, for integrity and optional proof references.
+            </p>
+            <p>
+              In the current MVP, LivreVault lives inside the Identity Node as a local storage
+              layer. You interact with it indirectly via the Agent Console when you create
+              identities, attach attributes, and export proofs.
+            </p>
+          </article>
         </div>
-        <div class="card">
-          <h3>Security model</h3>
+
+        <div class="callout" style="margin-top: 1.6rem;">
           <p>
-            Everything is encrypted on your device before it moves anywhere. Nodes only see
-            encrypted blobs and cannot decrypt them. On-chain, only hashed commitments are
-            stored for integrity and optional proof references.
+            To experiment with the Vault in practice, use the Identity Node MVP:
+            <a
+              href="https://livre-os.github.io/solivre-mvp-ui/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open the Solivre Identity Node UI →
+            </a>
           </p>
         </div>
       </div>
-    </div>
-  </section>
-
-</main>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>LIVRE OS · Sovereign Identity Operating System</span>
-      <span class="footer-meta">Solivre · LivreID · LivreVault · Built for COTI gcEVM</span>
+      <span>© <span id="year"></span> LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-note">
+        Solivre · LivreID · LivreVault · Built for COTI gcEVM · Experimental, not production-ready.
+      </span>
     </div>
   </footer>
-  <script src="script.js"></script>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
