@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>LIVRE OS — Roadmap</title>
+  <title>Roadmap · LIVRE OS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <!-- Shared nav -->
   <header class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -19,6 +20,14 @@
 
       <nav class="nav-links">
         <a href="index.html">Overview</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="solivre.html">Solivre</a>
+        <a href="livreid.html">LivreID</a>
+        <a href="vault.html">Vault</a>
+        <a href="developers.html">Developers</a>
+        <a href="roadmap.html" class="active">Roadmap</a>
+        <a href="contact.html">Contact</a>
+
         <div class="nav-dropdown">
           <button class="nav-drop-btn">
             MVPs <span class="chevron">▾</span>
@@ -31,100 +40,173 @@
             <a href="mvps.html#id-kernel">ID Kernel</a>
           </div>
         </div>
-        <a href="docs.html">Docs</a>
-        <a href="roadmap.html" class="active">Roadmap</a>
+
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/agent.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Agent
+        </a>
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/verifier.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Verifier
+        </a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero small">
+    <!-- Roadmap hero -->
+    <section class="hero hero-roadmap">
       <div class="hero-inner">
-        <h1>Roadmap</h1>
+        <p class="hero-kicker">Roadmap</p>
+        <h1>The path from demo node to sovereign network.</h1>
         <p class="hero-subtitle">
-          A living path from local demos to a sovereign, networked identity layer.
+          We start with a single Identity Node, then grow into a networked identity fabric:
+          Solivre Kernel, LivreID naming, hardened Vault, and app-facing Verifier flows.
+        </p>
+        <p class="hero-tagline">
+          Timelines are indicative, not promises. This page is a living map of what we’re
+          actively forging.
         </p>
       </div>
     </section>
 
+    <!-- Timeline -->
     <section class="section">
-      <div class="container">
-        <ol class="timeline">
-          <li class="timeline-item">
-            <div class="timeline-badge">M1</div>
-            <div class="timeline-body">
-              <h3>Define MVP Scope</h3>
-              <p>
-                Lock the minimal feature set for the Solivre Identity Node,
-                Agent, and Verifier — plus their API contracts.
-              </p>
-              <p class="timeline-meta">Area: Solivre · Status: In Progress</p>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-badge">M2</div>
-            <div class="timeline-body">
-              <h3>Solivre Kernel Spec</h3>
-              <p>
-                Finalize the Identity Kernel interfaces used by apps, agents,
-                and proof orchestrators.
-              </p>
-              <p class="timeline-meta">Area: Solivre · Status: Planned</p>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-badge">M3</div>
-            <div class="timeline-body">
-              <h3>LivreID Namespace Draft</h3>
-              <p>
-                Design a human-friendly namespace for identities and apps,
-                including reservation, resolution, and portability.
-              </p>
-              <p class="timeline-meta">Area: Namespace · Status: Planned</p>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-badge">M4</div>
-            <div class="timeline-body">
-              <h3>Proof Request Flow v0.1</h3>
-              <p>
-                Implement the end-to-end flow: Institution → Proof Request →
-                Solivre Agent → Proof → Verifier.
-              </p>
-              <p class="timeline-meta">Area: Proof Engine · Status: Planned</p>
-            </div>
-          </li>
-
-          <li class="timeline-item">
-            <div class="timeline-badge">M5</div>
-            <div class="timeline-body">
-              <h3>Smart Contract Interfaces v1</h3>
-              <p>
-                Expose proof verification and claim references on-chain, so
-                other protocols can consume LIVRE OS signals.
-              </p>
-              <p class="timeline-meta">Area: Contracts · Status: Planned</p>
-            </div>
-          </li>
-        </ol>
-
-        <div class="callout">
-          <p>
-            This roadmap is intentionally small. The goal is to sharpen the
-            core experience before scaling to a full network.
-          </p>
+      <div class="container roadmap-shell">
+        <div class="roadmap-legend">
+          <span class="roadmap-status-chip done">Done</span>
+          <span class="roadmap-status-chip active">Forging now</span>
+          <span class="roadmap-status-chip planned">On deck</span>
         </div>
+
+        <div class="roadmap-track">
+          <!-- M1 -->
+          <article class="roadmap-item done">
+            <div class="roadmap-node">
+              <span class="roadmap-dot"></span>
+              <span class="roadmap-line"></span>
+            </div>
+            <div class="roadmap-card">
+              <div class="roadmap-card-header">
+                <span class="roadmap-label">M1 · Identity Node MVP</span>
+                <span class="roadmap-status-pill">Done</span>
+              </div>
+              <p class="roadmap-title">
+                Define MVP scope &amp; ship the first Identity Node.
+              </p>
+              <p class="roadmap-body">
+                Basic Identity Node with Agent + Verifier consoles, file-based Vault, and
+                deterministic age/residency proof templates wired into a simple proof engine.
+              </p>
+              <div class="roadmap-meta">
+                <span class="roadmap-tag">Identity Node v0.x</span>
+                <span class="roadmap-tag">Agent / Verifier</span>
+                <span class="roadmap-tag warm">File-based Vault</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- M2 -->
+          <article class="roadmap-item active">
+            <div class="roadmap-node">
+              <span class="roadmap-dot"></span>
+              <span class="roadmap-line"></span>
+            </div>
+            <div class="roadmap-card">
+              <div class="roadmap-card-header">
+                <span class="roadmap-label">M2 · Solivre Kernel &amp; Vault spec</span>
+                <span class="roadmap-status-pill active">Forging</span>
+              </div>
+              <p class="roadmap-title">
+                Stabilize the Solivre Kernel &amp; harden the Vault model.
+              </p>
+              <p class="roadmap-body">
+                Extract a minimal Solivre Kernel interface from the node, define how claims,
+                policies, and proof descriptors are represented, and draft a hardened Vault spec
+                with pluggable backends and rotation.
+              </p>
+              <div class="roadmap-meta">
+                <span class="roadmap-tag">Kernel API draft</span>
+                <span class="roadmap-tag">Claims &amp; policies</span>
+                <span class="roadmap-tag warm">Vault design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- M3 -->
+          <article class="roadmap-item planned">
+            <div class="roadmap-node">
+              <span class="roadmap-dot"></span>
+              <span class="roadmap-line"></span>
+            </div>
+            <div class="roadmap-card">
+              <div class="roadmap-card-header">
+                <span class="roadmap-label">M3 · LivreID namespace</span>
+                <span class="roadmap-status-pill planned">On deck</span>
+              </div>
+              <p class="roadmap-title">
+                Launch the LivreID naming layer for identities.
+              </p>
+              <p class="roadmap-body">
+                Specify how <strong>odin.livre</strong> and similar names resolve to private
+                identity anchors, not public profiles. Design registration, renewal, and privacy
+                guarantees so apps see anchors, never documents.
+              </p>
+              <div class="roadmap-meta">
+                <span class="roadmap-tag">.livre names</span>
+                <span class="roadmap-tag">Resolution rules</span>
+                <span class="roadmap-tag warm">Privacy model</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- M4 -->
+          <article class="roadmap-item planned">
+            <div class="roadmap-node">
+              <span class="roadmap-dot"></span>
+            </div>
+            <div class="roadmap-card">
+              <div class="roadmap-card-header">
+                <span class="roadmap-label">M4 · Proof flows &amp; on-chain orchestrator</span>
+                <span class="roadmap-status-pill planned">Planned</span>
+              </div>
+              <p class="roadmap-title">
+                Move from manual JSON copy/paste to real proof request flows.
+              </p>
+              <p class="roadmap-body">
+                Define a standard “Proof Request” schema, build request/response flows between
+                apps, Agents, and Identity Nodes, and experiment with an on-chain orchestrator
+                on COTI gcEVM for anchoring proof hashes and policies.
+              </p>
+              <div class="roadmap-meta">
+                <span class="roadmap-tag">Proof Request schema</span>
+                <span class="roadmap-tag">Verifier UX</span>
+                <span class="roadmap-tag warm">On-chain anchors</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="roadmap-footnote">
+          Everything above is intentionally small and composable. LIVRE OS grows by hardening
+          each layer — Kernel, Vault, LivreID, Wallet — not by shipping a monolith in one go.
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> LIVRE OS · Solivre MVP</p>
-      <p class="footer-note">Timelines and milestones are subject to change as the forge evolves.</p>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-note">
+        Solivre · LivreID · LivreVault · Built for COTI gcEVM · Experimental, not production-ready.
+      </span>
     </div>
   </footer>
 
