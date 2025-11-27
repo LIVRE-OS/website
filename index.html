@@ -6,44 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="SOLIVRE · Livre OS — a mythic yet practical suite for sovereign identity, verifiable proofs and privacy-first credentials."
+    content="SOLIVRE · LIVRE OS — a mythic yet practical suite for sovereign identity, verifiable proofs and privacy-first credentials."
   />
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="page-dark">
-  <!-- Top navigation -->
-  <header class="top-nav">
-    <div class="top-nav__left">
-      <a href="index.html" class="brand">
-        <span class="brand-mark">ᛟ</span>
-        <span class="brand-text">
-          LIVRE<span>OS</span>
-        </span>
+<body>
+  <!-- Shared nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        LIVRE<span>OS</span>
       </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links">
+      
+        <a href="architecture.html">Architecture</a>
+        <a href="solivre.html">Solivre</a>
+        <a href="livreid.html">LivreID</a>
+        <a href="vault.html">Vault</a>
+        <a href="developers.html">Developers</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="contact.html">Contact</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-drop-btn">
+            MVPs <span class="chevron">▾</span>
+          </button>
+          <div class="nav-drop-menu">
+            <a href="mvps.html#identity-node">Identity Node</a>
+            <a href="mvps.html#agent-console">Agent Console</a>
+            <a href="mvps.html#verifier-console">Verifier Console</a>
+            <a href="mvps.html#livre-vault">Livre Vault</a>
+            <a href="mvps.html#id-kernel">ID Kernel</a>
+          </div>
+        </div>
+
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/agent.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Agent
+        </a>
+        <a
+          href="https://livre-os.github.io/solivre-mvp-ui/verifier.html"
+          target="_blank"
+          rel="noreferrer"
+        >
+          MVP Verifier
+        </a>
+      </nav>
     </div>
-
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-      ☰
-    </button>
-
-    <nav class="top-nav__links" id="nav-links">
-      <a href="solivre.html">Solivre</a>
-      <a href="solivre-wallet.html">Wallet</a>
-      <a href="livreid.html">Livre ID</a>
-      <a href="mvps.html">MVPs</a>
-      <a href="roadmap.html">Roadmap</a>
-      <a href="docs.html">Docs</a>
-      <a href="developers.html">Developers</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <main class="layout">
+  <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-copy">
+      <div class="hero-inner">
         <p class="hero-kicker">SOLIVRE · Identity Forge</p>
-        <h1>Mythic roots. <br /> Practical, sovereign identity.</h1>
+        <h1>LIVRE OS</h1>
         <p class="hero-subtitle">
           LIVRE OS is a minimal, verifiable identity suite. You keep your data in your
           own vault, share only the proofs you choose, and connect to apps without
@@ -51,196 +76,164 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="../solivre-mvp-ui/agent.html" target="_blank">
+          <a class="btn-primary" href="mvps.html">
+            Explore Solivre MVPs
+          </a>
+          <a
+            class="btn-ghost"
+            href="https://livre-os.github.io/solivre-mvp-ui/agent.html"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open Agent MVP
           </a>
-          <a class="btn ghost" href="../solivre-mvp-ui/verifier.html" target="_blank">
+          <a
+            class="btn-secondary"
+            href="https://livre-os.github.io/solivre-mvp-ui/verifier.html"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open Verifier MVP
           </a>
         </div>
 
-        <div class="hero-meta">
-          <span class="tag">Status: Experimental MVP</span>
-          <span class="tag">Backend: Local node</span>
-        </div>
-      </div>
-
-      <div class="hero-orbit">
-        <div class="orbit-ring orbit-ring--outer"></div>
-        <div class="orbit-ring orbit-ring--inner"></div>
-        <div class="orbit-core">
-          <span class="orbit-core__title">Identity Kernel</span>
-          <span class="orbit-core__subtitle">Vault · Graph · Proofs</span>
-        </div>
-        <div class="orbit-node orbit-node--top">
-          <span class="orbit-node__label">Wallet</span>
-        </div>
-        <div class="orbit-node orbit-node--left">
-          <span class="orbit-node__label">Solivre</span>
-        </div>
-        <div class="orbit-node orbit-node--right">
-          <span class="orbit-node__label">Apps</span>
-        </div>
+        <p class="hero-tagline">
+          Own your proofs. Keep your data. Let apps ask for <em>signals</em>, not your soul.
+        </p>
       </div>
     </section>
 
     <!-- Three core pillars -->
-    <section class="grid grid--three">
-      <article class="card">
-        <h2>Vault-first design</h2>
-        <p>
-          Attributes live in your vault, not in someone else’s database. The system
-          generates commitments and proofs, so apps only see what they must see —
-          nothing more.
+    <section class="section">
+      <div class="container">
+        <h2>Vault-first. Proof-native. Mythic, not magical.</h2>
+        <p class="section-lead">
+          One identity kernel, backed by a vault, speaking in minimal proofs instead of documents.
         </p>
-      </article>
 
-      <article class="card">
-        <h2>Minimal proofs</h2>
-        <p>
-          Age over 18, residency, role, membership — expressed as lean proof
-          bundles. Deterministic, verifiable and easy to integrate from any stack.
-        </p>
-      </article>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Vault-first design</h3>
+            <p>
+              Attributes live in your vault, not in someone else’s database. The system
+              generates commitments and proofs, so apps only see what they must see —
+              nothing more.
+            </p>
+          </article>
 
-      <article class="card">
-        <h2>Mythic, not magical</h2>
-        <p>
-          The lore is mythic, the stack is boring on purpose: simple HTTP APIs,
-          TypeScript services and clear contracts you can read and fork.
-        </p>
-      </article>
+          <article class="card">
+            <h3>Minimal proofs</h3>
+            <p>
+              Age over 18, residency, role, membership — expressed as lean proof
+              bundles. Deterministic, verifiable, and easy to integrate from any stack.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Mythic, not magical</h3>
+            <p>
+              The lore is mythic, the stack is boring on purpose: simple HTTP APIs,
+              TypeScript services, and clear contracts you can read and fork.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- Suite overview -->
-    <section class="section">
-      <header class="section-header">
+    <section class="section alt">
+      <div class="container">
         <h2>The LIVRE OS Suite</h2>
-        <p>One identity kernel, multiple surfaces.</p>
-      </header>
+        <p class="section-lead">One identity kernel, multiple surfaces.</p>
 
-      <div class="grid grid--four">
-        <article class="card card--mini">
-          <h3><a href="solivre.html">Solivre</a></h3>
-          <p>
-            The orchestration layer. Connects identities, proofs and apps with a
-            consistent protocol.
-          </p>
-        </article>
+        <div class="card-grid">
+          <article class="card">
+            <h3><a href="solivre.html">Solivre</a></h3>
+            <p>
+              The orchestration layer. Connects identities, proofs, and apps with a
+              consistent protocol.
+            </p>
+          </article>
 
-        <article class="card card--mini">
-          <h3><a href="solivre-wallet.html">Solivre Wallet</a></h3>
-          <p>
-            A future-ready wallet for credentials, non-transferable tokens and
-            long-term records.
-          </p>
-        </article>
+          <article class="card">
+            <h3><a href="solivre-wallet.html">Solivre Wallet</a></h3>
+            <p>
+              A future-ready wallet for credentials, non-transferable tokens, and
+              long-term records.
+            </p>
+          </article>
 
-        <article class="card card--mini">
-          <h3><a href="livreid.html">Livre ID</a></h3>
-          <p>
-            Permanent identities anchored in your vault, with optional graph links
-            and endorsements.
-          </p>
-        </article>
+          <article class="card">
+            <h3><a href="livreid.html">LivreID</a></h3>
+            <p>
+              Human-readable identities anchored in your vault, with optional graph links
+              and endorsements.
+            </p>
+          </article>
 
-        <article class="card card--mini">
-          <h3><a href="mvps.html">MVP Experiments</a></h3>
-          <p>
-            Agent &amp; Verifier flows, age-over-18 proofs, residency templates and
-            test data.
-          </p>
-        </article>
+          <article class="card">
+            <h3><a href="mvps.html">MVP Experiments</a></h3>
+            <p>
+              Agent &amp; Verifier flows, age-over-18 proofs, residency templates, and
+              test data.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- Roadmap teaser -->
-    <section class="section section--accent">
-      <header class="section-header">
+    <section class="section">
+      <div class="container">
         <h2>Roadmap at a glance</h2>
-        <p>From local demo to sovereign-grade infrastructure.</p>
-      </header>
+        <p class="section-lead">
+          From local demo node to sovereign-grade infrastructure.
+        </p>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>Phase 1 · Local MVP</h3>
-            <p>
-              Agent/Verifier working against a local node, with deterministic proof
-              hashing and in-memory vault.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>Phase 2 · Vault &amp; Graph</h3>
-            <p>
-              Persistent vault, identity graph explorer and a clearer kernel/vault
-              separation in the codebase.
-            </p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>Phase 3 · Wallet &amp; Apps</h3>
-            <p>
-              Solivre wallet prototype and app integrations: age gates, private
-              memberships and verifiable roles.
-            </p>
-          </div>
-        </div>
-      </div>
+        <ul class="roadmap-list">
+          <li>
+            <span class="badge">P1</span>
+            <span>Local Identity Node MVP — Agent/Verifier working against a local node with deterministic proof hashing.</span>
+          </li>
+          <li>
+            <span class="badge">P2</span>
+            <span>Vault &amp; Graph — persistent vault, identity graph explorer, and clearer kernel/vault separation.</span>
+          </li>
+          <li>
+            <span class="badge">P3</span>
+            <span>Wallet &amp; Apps — Solivre wallet prototype and app integrations for age gates, memberships, and roles.</span>
+          </li>
+        </ul>
 
-      <div class="section-actions">
-        <a class="btn outline" href="roadmap.html">View full roadmap</a>
-        <a class="btn text" href="developers.html">Developer notes →</a>
+        <a class="btn-secondary" href="roadmap.html">Open full roadmap →</a>
       </div>
     </section>
 
     <!-- Call to action -->
-    <section class="section section--cta">
-      <div class="section-header">
+    <section class="section alt">
+      <div class="container">
         <h2>Want to forge with us?</h2>
-        <p>
-          LIVRE OS is early, messy and alive — perfect time to shape the protocol,
-          test ideas and break things on purpose.
+        <p class="section-lead">
+          LIVRE OS is early, messy, and alive — perfect time to shape the protocol,
+          test ideas, and break things on purpose.
         </p>
-      </div>
-      <div class="section-actions">
-        <a class="btn primary" href="contact.html">Get in touch</a>
-        <a class="btn ghost" href="docs.html">Read the docs</a>
+        <div class="hero-actions">
+          <a class="btn-primary" href="contact.html">Get in touch</a>
+          <a class="btn-ghost" href="developers.html">Developer notes</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer-left">
-      <span>© <span id="year"></span> LIVRE OS · SOLIVRE</span>
-      <span class="footer-sub">Forged on local nodes. No central logins.</span>
-    </div>
-    <div class="footer-right">
-      <a href="architecture.html">Architecture</a>
-      <a href="vault.html">Vault</a>
-      <a href="agent.html">Agent</a>
-      <a href="verifier.html">Verifier</a>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> LIVRE OS · Sovereign Identity Operating System</span>
+      <span class="footer-note">
+        Solivre · LivreID · LivreVault · Built for COTI gcEVM · Experimental, not production-ready.
+      </span>
     </div>
   </footer>
 
-  <script>
-    // year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // mobile nav
-    const navToggle = document.getElementById("nav-toggle");
-    const navLinks = document.getElementById("nav-links");
-    if (navToggle && navLinks) {
-      navToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("top-nav__links--open");
-      });
-    }
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
